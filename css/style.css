@@ -1,0 +1,212 @@
+
+
+.row{
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
+}
+.team{
+    margin-top: 30px!important;
+    margin-bottom: 30px!important;
+}
+div.btn-modal {
+    height: 100px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+div.carousel{
+    height: 950px!important;
+}
+
+div.btn-modal button{
+    font-size:40px!important;
+    border-radius: 10px;
+}
+
+a#btn-carousel{
+    margin-top: 700px;
+}
+
+div.nav-wrapper{
+    background-color: var(--main-color)!important;
+}
+
+body{
+    background-color: var(--body-color)!important;
+}
+
+.sidenav{
+    background-color: var(--main-color)!important;
+    color: var(--body-color)!important;
+}
+
+.icon-margin{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+
+span.black-text-css{
+    color: var(--text-color)!important;
+}
+
+.card-bg{
+    background-color: var(--box-color)!important;
+}
+
+h2.titre-projet{ 
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    font-family: 'Outfit', sans-serif;
+}
+
+.white-text-css{
+    color: var(--body-color)!important;
+    font-family: 'Outfit', sans-serif;
+}
+
+.black-text-css{
+    color: var(--text-color)!important;
+    font-family: 'Outfit', sans-serif;
+}
+
+.button-grey{
+    background-color: var(--main-color)!important;
+    font-family: 'Outfit', sans-serif;
+}
+
+
+.btn-carousel{
+    background-color: var(--body-color)!important;
+    font-family: 'Outfit', sans-serif;
+}
+
+.carousel-img-ow{
+    background-image: url(../img/ow2-background-home.jpeg);
+    background-size: cover;
+    background-position: left;
+}
+
+.carousel-img-ac{
+    background-image: url(../img/backgroundAC.jpg);
+    background-position: left;
+    background-size: cover;
+}
+
+.carousel-img-three{
+    background-image: url(../img/elden-ring-background-home.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+
+.title-carousel{
+    text-transform: uppercase!important;
+    text-decoration: underline;
+}
+
+.contact-card{
+    margin: 0px!important;
+    margin-bottom: 0px!important;
+    background-color: var(--body-color)!important;
+}
+
+.game-card{
+    background-color: var(--box-color)!important;
+}
+
+.email-text{
+    margin-top: 10px!important;
+    margin-bottom: 10px!important;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+nav ul a.home-button{
+    display: flex!important;
+    text-align: center!important;
+    padding: 20px!important;
+}
+
+nav ul a {
+    font-family: 'Outfit', sans-serif;
+}
+
+.game-presentation{
+    margin-top: 30px!important;
+}
+
+a.a-link-text{
+    text-decoration: underline;
+    color: var(--text-color)!important;
+}
+
+.background-project-ow{
+    bottom: -22px!important;
+}
+
+.background-project-ac{
+    bottom: -80px!important;
+}
+
+.button-download{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 125px;
+}
+
+.parallax-download{
+    height: 300px!important;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.mail-icon{
+    vertical-align: middle!important;
+}
+
+.contact-text{
+    font-size: 24px;
+}
+
+.iframe-site{
+    height: 75%!important;
+    width: 100%!important;
+}
+
+.card-site{
+    margin-top: 30px!important;
+}
+
+.text-project-card{
+    margin-left: 40px!important;
+    margin-right: 40px!important;
+}
+
+.items-elden{
+    width: 70%!important;
+    height: 800px!important;
+}
+
+.elden-card{
+    margin-top: 40px!important;
+}
+
+.button-egg-ow{
+    margin-top: 290px!important;
+    margin-right: 455px!important;
+    padding: 10px!important;
+    opacity: 0%;
+}
+
+.form-style{
+    padding-left: 250px!important;
+    padding-right: 250px!important;
+}
+
+h2.form-title{
+    text-align: center!important;
+}
