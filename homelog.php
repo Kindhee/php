@@ -23,19 +23,20 @@
 
   <h2 class="black-text-css form-title" >Inscription</h2>
   <form class="form-style" method="post" action="actions/signup.php">
-      <input type='email' name='email' placeholder='email'/>
-      <input type='text' name='username' placeholder='username'/>
-      <input type='password' name='password' placeholder='password'/>
-      <input type='submit' value='Créer un compte' />
+      <input class="form-text" type='email' name='email' placeholder='email'/>
+      <input class="form-text" type='text' name='username' placeholder='username'/>
+      <input class="form-text" type='password' name='password' placeholder='password'/>
+      <input class="submit-button black-text-css" type='submit' value='Créer un compte' />
   </form>
   <h2 class="black-text-css form-title">Connexion</h2>
   <form class="form-style" method="post" action="actions/login.php">
-    <input type='text' name='username' placeholder='username'/>
-    <input type='password' name='password' placeholder='password'/>
-    <input type='submit' value='Me connecter' />
+    <input class="form-text" type='text' name='username' placeholder='username'/>
+    <input class="form-text" type='password' name='password' placeholder='password'/>
+    <input class="submit-button black-text-css" type='submit' value='Se connecter' />
   </form>
 
-
+  <h1>Liste des utilisateurs</h1>
+  <?php require "actions/showuser.php"; ?>
 
 <!-- JQuery -->
 <script type="text/javascript" src="js/jquery.min.js"></script>

@@ -203,10 +203,25 @@ a.a-link-text{
 }
 
 .form-style{
-    padding-left: 400px!important;
-    padding-right: 400px!important;
+    /* width: 50%!important; */
+    text-align: center!important;
+    padding-left: 800px!important;
+    padding-right: 800px!important;
+}
+
+.form-text{
+    text-align: center!important;
+    margin-bottom: 50px!important;
 }
 
 h2.form-title{
     text-align: center!important;
+}
+
+.submit-button{
+    background-color: var(--main-color)!important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
