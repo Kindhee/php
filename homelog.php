@@ -21,7 +21,7 @@
   
   <?php require "components/menu.php"; ?>
 
-  <h2 class="black-text-css form-title" >aaaaaaaazzzzzzzzzzzzzzzzz</h2>
+  <h2 class="black-text-css form-title" >Inscription</h2>
   <form class="form-style" method="post" action="actions/signup.php">
       <input type='email' name='email' placeholder='email'/>
       <input type='text' name='username' placeholder='username'/>
