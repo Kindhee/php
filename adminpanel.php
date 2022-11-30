@@ -37,10 +37,12 @@
 
     <form method="post" action="actions/admin.php">
         <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-        <?php echo $user['id'] ?>
         <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />
-        <?php echo $user['admin'] ?>
-        <button class="btn-adminpanel black-text-css" type="submit">Switch to Admin</button>
+        <button class="btn-adminpanel black-text-css" type="submit">Switch a Admin</button>
+    </form>
+    <form method="post" action="actions/deleteuser.php">
+        <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
+        <button class="btn-adminpanel black-text-css" type="submit">Supprimer</button>
     </form>
   </div>
   <?php } ?>
