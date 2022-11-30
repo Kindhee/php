@@ -34,7 +34,10 @@
   foreach($data as $user){ ?>
   <div class="bloc_user">
     <p class="black-text-css list-text"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" - ADMIN")?></p>
-    <input class="submit-button black-text-css" type='submit' value='Créer un compte' />
+    <form action="admin.php" name ='id' method="post">
+        <input  type='hidden' value= id/>
+        <button type="submit">Admin On / Off</button>
+    </form>
   </div>
   <?php } ?>
 
