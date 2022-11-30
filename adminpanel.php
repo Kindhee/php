@@ -22,6 +22,15 @@
   
   <?php require "components/menu.php"; ?>
 
+  <div class="red white-text-css-all text-center">
+    <?php 
+      if(isset($_SESSION['error'])){
+	      echo $_SESSION['error'];
+	      unset($_SESSION['error']);
+      } 
+      ?>
+  </div>
+
   <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le panel Admin " . $_SESSION['user']['username'] . " !"; ?> </h1>
 
   <h2 class="black-text-css" >Liste des utilisateurs :</h2>
@@ -32,18 +41,24 @@
   $data = $pre->fetchAll(PDO::FETCH_ASSOC);
    
   foreach($data as $user){ ?>
-  <div class="bloc_user">
+  <div class="user-display">
     <p class="black-text-css list-text"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" | ADMIN")?></p>
 
-    <form method="post" action="actions/admin.php">
-        <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-        <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />
-        <button class="btn-adminpanel black-text-css" type="submit">Switch a Admin</button>
-    </form>
-    <form method="post" action="actions/deleteuser.php">
-        <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-        <button class="btn-adminpanel black-text-css" type="submit">Supprimer</button>
-    </form>
+      <div class="btn-user-display">
+
+      <form method="post" action="actions/admin.php">
+          <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
+          <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />
+          <button class="btn-adminpanel black-text-css" type="submit">Admin</button>
+      </form>
+
+      <form method="post" action="actions/deleteuser.php">
+          <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
+          <button class="btn-adminpanel black-text-css" type="submit"><span class="material-icons admin-icon">delete</span></button>
+      </form>
+
+    </div>
+
   </div>
   <?php } ?>
 

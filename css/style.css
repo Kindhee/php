@@ -230,6 +230,8 @@ h2.form-title{
     background-color: var(--main-color)!important;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 
@@ -243,4 +245,12 @@ h2.form-title{
 
 .white-text-css-all{
     color: white;
+}
+
+.btn-user-display{
+    display: flex;
+}
+
+.admin-icon{
+    font-size: 18px!important;
 }
