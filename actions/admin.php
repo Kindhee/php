@@ -10,3 +10,5 @@ $pre->execute($dataBinded);
 
 $data = $pre->fetchAll(PDO::FETCH_ASSOC);// on stocke les données dans une variable (ici $data)
 ?>
+<!-- 
+ssssssssss -->
