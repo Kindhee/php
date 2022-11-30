@@ -31,36 +31,45 @@
       ?>
   </div>
 
-  <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le panel Admin " . $_SESSION['user']['username'] . " !"; ?> </h1>
-
-  <h2 class="black-text-css" >Liste des utilisateurs :</h2>
-  <?php
-  $sql = "SELECT * FROM user"; 
-  $pre = $pdo->prepare($sql); 
-  $pre->execute();
-  $data = $pre->fetchAll(PDO::FETCH_ASSOC);
+  <h1 class="black-text-css text-center "><?php echo "Bienvenue sur le panel Admin " . $_SESSION['user']['username'] . " !"; ?> </h1>
+<div class="display-admin">
+  <div>
+    <h2 class="black-text-css" >Liste des utilisateurs :</h2>
+    <?php
+    $sql = "SELECT * FROM user"; 
+    $pre = $pdo->prepare($sql); 
+    $pre->execute();
+    $data = $pre->fetchAll(PDO::FETCH_ASSOC);
    
-  foreach($data as $user){ ?>
-  <div class="user-display">
-    <p class="black-text-css list-text"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" | ADMIN")?></p>
+    foreach($data as $user){ ?>
+    <div class="user-display">
+      <p class="black-text-css list-text">
+        <?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" | ADMIN")?> 
+      </p>
 
-      <div class="btn-user-display">
+        <div class="btn-user-display">
 
-      <form method="post" action="actions/admin.php">
-          <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-          <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />
-          <button class="btn-adminpanel black-text-css" type="submit">Admin</button>
-      </form>
+          <form method="post" action="actions/admin.php">
+              <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
+              <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />
+              <button class="btn-adminpanel black-text-css" type="submit">Admin</button>
+          </form>
 
-      <form method="post" action="actions/deleteuser.php">
-          <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-          <button class="btn-adminpanel black-text-css" type="submit"><span class="material-icons admin-icon">delete</span></button>
-      </form>
+          <form method="post" action="actions/deleteuser.php">
+              <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
+              <button class="btn-adminpanel black-text-css" type="submit"><span class="material-icons admin-icon">delete</span></button>
+          </form>
 
+        </div>
+      <?php } ?>
     </div>
-
   </div>
-  <?php } ?>
+
+  <div>
+    <h4>Hello</h4>
+  </div>
+  
+</div
 
   <!-- JQuery -->
   <script type="text/javascript" src="js/jquery.min.js"></script>

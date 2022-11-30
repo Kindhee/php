@@ -25,11 +25,10 @@
   
 <?php require "components/menu.php"; ?>
   
-<div class="parallax-container">
-  <div class="parallax"><img src="img/gc-banner.jpg">
+  <div>
+    <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le site \" " . $_SESSION['user']['username'] . " \" !"; ?></h1>
   </div>
-  <div><?php echo "Bienvenue sur le site " . $_SESSION['user']['username'] . " !"; ?></div>
-</div>
+
 
 
 <div class="row team">
@@ -125,9 +124,6 @@
   </div>
 
   <div class="parallax-container">
-    <div class="parallax">
-      <img src="img/gc-banner.jpg">
-    </div>
     <div class="center" style="line-height: 500px;">
       <button data-target="modal1" class="button-grey waves-effect waves-light modal-trigger btn-large">Contact</button>
     </div>

@@ -254,3 +254,11 @@ h2.form-title{
 .admin-icon{
     font-size: 18px!important;
 }
+
+h1.parallax-middle{
+    padding-top: 175px!important;
+}
+
+.display-admin{
+    display: flex!important;
+}
