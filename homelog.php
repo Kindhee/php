@@ -24,6 +24,16 @@
   if (isset($_SESSION['$user'])){
     echo "Bienvenue" . $_SESSION['username'] . "!";
   } else { ?>
+
+  <div class="red white-text-css-all text-center">
+    <?php 
+      if(isset($_SESSION['error'])){
+	      echo $_SESSION['error'];
+	      unset($_SESSION['error']);
+      } 
+      ?>
+  </div>
+
     <h2 class="black-text-css form-title" >Inscription</h2>
     <form class="form-style" method="post" action="actions/signup.php">
         <input class="form-text" type='email' name='email' placeholder='email'/>
