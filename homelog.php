@@ -47,22 +47,6 @@
   } 
   ?>
 
-
-  <h1>Liste des utilisateurs</h1>
-  <?php
-  $sql = "SELECT * FROM user"; 
-  $pre = $pdo->prepare($sql); 
-  $pre->execute();
-  $data = $pre->fetchAll(PDO::FETCH_ASSOC);
-   
-  foreach($data as $user){ ?>
-  <div class="bloc_user">
-    <h3><?php echo " email : " . $user['email']." | username : ".$user['username']?></h3>
-    <h3> admin : </h3>
-    <h3><?php echo $user['admin']==0?"Non":"Oui" ?></h3>
-  </div>
-  <?php } ?>
-
   <!-- JQuery -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
 

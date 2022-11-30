@@ -33,9 +33,11 @@
    
   foreach($data as $user){ ?>
   <div class="bloc_user">
-    <p class="black-text-css list-text"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" - ADMIN")?></p>
-    <form action="admin.php" name ='id' method="post">
-        <input  type='hidden' value= id/>
+    <p class="black-text-css list-text"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" | ADMIN")?></p>
+    <form method="post" action="actions/admin.php">
+        <input type='hidden' name="id" value = <?php $user['id'] ?> />
+        <?php $isAdmin = $user['admin']==1?0:1  ?> 
+        <input type='hidden' name="admin" value = $isAdmin />
         <button type="submit">Admin On / Off</button>
     </form>
   </div>
