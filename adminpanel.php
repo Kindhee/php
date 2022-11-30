@@ -33,7 +33,7 @@
    
   foreach($data as $user){ ?>
   <div class="bloc_user">
-    <h3 class="black-text-css"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" - ADMIN")?></h3>
+    <p class="black-text-css list-text"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" - ADMIN")?></p>
     <input class="submit-button black-text-css" type='submit' value='Créer un compte' />
   </div>
   <?php } ?>
