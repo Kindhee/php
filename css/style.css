@@ -226,10 +226,21 @@ h2.form-title{
     padding-right: 5px;
 }
 
+.btn-adminpanel{ 
+    background-color: var(--main-color)!important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
 .text-center{
     text-align: center!important;
 }
 
 .list-text{
     font-size: 20px!important;
+}
+
+.white-text-css-all{
+    color: white;
 }

@@ -36,11 +36,11 @@
     <p class="black-text-css list-text"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" | ADMIN")?></p>
 
     <form method="post" action="actions/admin.php">
-        <input type='hidden' name="id" value = "<?php $user['id'] ?>" />
+        <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
         <?php echo $user['id'] ?>
-        <input type='hidden' name="admin" value = "<?php $user['admin']==1?0:1 ?>" />
+        <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />
         <?php echo $user['admin'] ?>
-        <button type="submit">switch Admin</button>
+        <button class="btn-adminpanel black-text-css" type="submit">Switch to Admin</button>
     </form>
   </div>
   <?php } ?>
