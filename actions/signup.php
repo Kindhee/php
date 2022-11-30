@@ -1,5 +1,24 @@
 <?php 
 require_once "../cfg/config.php"; 
+
+if(empty($_POST["email"])){
+    $_SESSION['error']="No email";
+    header('Location:../homelog.php');
+    exit();
+}
+
+if(empty($_POST["username"])){
+    $_SESSION['error']="No username";
+    header('Location:../homelog.php');
+    exit();
+}
+
+if(empty($_POST["password"])){
+    $_SESSION['error']="No password";
+    header('Location:../homelog.php');
+    exit();
+}
+
 $sql = "INSERT INTO user(email, username, password) VALUES(:email, :username, SHA1(:password))";
 $dataBinded=array(
     ':email'   => $_POST['email'],

@@ -20,35 +20,11 @@
  </head>
  <body>
   
-  <?php require "components/menu.php"; 
-  if (isset($_SESSION['$user'])){
-    echo "Bienvenue" . $_SESSION['username'] . "!";
-  } else { ?>
-    <h2 class="black-text-css form-title" >Inscription</h2>
-    <form class="form-style" method="post" action="actions/signup.php">
-        <input class="form-text" type='email' name='email' placeholder='email'/>
-        <input class="form-text" type='text' name='username' placeholder='username'/>
-        <input class="form-text" type='password' name='password' placeholder='password'/>
-        <input class="submit-button black-text-css" type='submit' value='Créer un compte' />
-    </form>
+  <?php require "components/menu.php"; ?>
 
-    <h2 class="black-text-css form-title">Connexion</h2>
-    <form class="form-style" method="post" action="actions/login.php">
-      <input class="form-text" type='text' name='username' placeholder='username'/>
-      <input class="form-text" type='password' name='password' placeholder='password'/>
-      <input class="submit-button black-text-css" type='submit' value='Se connecter' />
-    </form>
-  <?php } ?>
+  <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le panel Admin " . $_SESSION['user']['username'] . " !"; ?> </h1>
 
-  <?php 
-  if(isset($_SESSION['error'])){
-	  echo $_SESSION['error'];
-	  unset($_SESSION['error']);
-  } 
-  ?>
-
-
-  <h1>Liste des utilisateurs</h1>
+  <h2 class="black-text-css" >Liste des utilisateurs :</h2>
   <?php
   $sql = "SELECT * FROM user"; 
   $pre = $pdo->prepare($sql); 
@@ -57,9 +33,8 @@
    
   foreach($data as $user){ ?>
   <div class="bloc_user">
-    <h3><?php echo " email : " . $user['email']." | username : ".$user['username']?></h3>
-    <h3> admin : </h3>
-    <h3><?php echo $user['admin']==0?"Non":"Oui" ?></h3>
+    <h3 class="black-text-css"><?php echo " email : " . $user['email']." | username : ".$user['username']." ".($user['admin']==0?"":" - ADMIN")?></h3>
+    <input class="submit-button black-text-css" type='submit' value='Créer un compte' />
   </div>
   <?php } ?>
 
