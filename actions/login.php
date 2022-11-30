@@ -22,6 +22,7 @@ if(empty($user)){
     header('Location:../homelog.php');
     exit();
 }else{
+    session_start();
     $_SESSION['user'] = $user; 
     if($user['admin']==1){
         header('Location:../adminpanel.php');

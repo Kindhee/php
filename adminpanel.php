@@ -32,7 +32,6 @@
   </div>
 
   <h1 class="black-text-css text-center "><?php echo "Bienvenue sur le panel Admin " . $_SESSION['user']['username'] . " !"; ?> </h1>
-<div class="display-admin">
   <div>
     <h2 class="black-text-css" >Liste des utilisateurs :</h2>
     <?php
@@ -64,12 +63,6 @@
       <?php } ?>
     </div>
   </div>
-
-  <div>
-    <h4>Hello</h4>
-  </div>
-  
-</div
 
   <!-- JQuery -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
