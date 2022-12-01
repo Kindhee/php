@@ -27,7 +27,8 @@ if(empty($user)){
     if($user['admin']==1){
         header('Location:../adminpanel.php');
     } else {
-        header('Location:../index.php');
+        // header('Location:../index.php');
+        header('Location:../indexbis.php');
     }
 }
 
