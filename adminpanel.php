@@ -48,6 +48,12 @@
 
         <div class="btn-user-display">
 
+          <form method="post" action="actions/changeusername.php">
+              <input class = "textarea-admin" type='textarea' name="username" value = "<?php echo $user['username'] ?>" />
+              <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
+              <button class="btn-adminpanel black-text-css" type="submit">Modifier</button>
+          </form>
+
           <form method="post" action="actions/admin.php">
               <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
               <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />

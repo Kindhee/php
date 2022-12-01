@@ -1,7 +1,7 @@
 <?php 
 require_once "../cfg/config.php"; 
 
-if($_SESSION['id']==$_POST['id']){
+if($_SESSION['user']['id']==$_POST['id']){
     $_SESSION['error']="Vous ne pouvez pas vous supprimez vous-même de ce rôle";
     header('Location:../adminpanel.php');
     exit();
