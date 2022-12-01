@@ -119,16 +119,12 @@
             <div class="card-content">
               <div class="container">
                 <h3>Formulaire de contact</h3>
-                <form action="index.php">
-                  <label for="fname">Nom & prénom</label>
-                  <input type="text" id="fname" name="firstname" placeholder="Votre nom et prénom">
-                  <label for="sujet">Sujet</label>
-                  <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
-                  <label for="emailAddress">Email</label>
-                  <input id="emailAddress" type="email" name="email" placeholder="Votre email">
-                  <label for="subject">Message</label>
-                  <textarea id="subject" name="subject" placeholder="Votre message" style="height:200px"></textarea>
-                  <input type="submit" value="Envoyer">
+                <form action="mail.php" method="post">
+                  <input type="text" name="email" value="" placeholder=" Votre email">
+                  <input type="text" name="objet" value="" placeholder="L'objet du mail">
+                  <input type="textarea" class="textarea-style" name="content" value="" placeholder="Ecrivez nous ici">
+                  <input type="hidden" name="ownemail" value="" placeholder=" Votre email">
+                  <input type="submit" value="Envoyer" >
                 </form>
               </div>
 

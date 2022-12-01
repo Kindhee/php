@@ -17,6 +17,8 @@ $sql = "SELECT * FROM user WHERE username='".$_POST['username']."' AND password=
 $pre = $pdo->prepare($sql); 
 $pre->execute();
 $user = $pre->fetch(PDO::FETCH_ASSOC); 
+$index_page = $pre->fetch(PDO::FETCH_ASSOC); 
+$project = $pre->fetch(PDO::FETCH_ASSOC); 
 if(empty($user)){
     $_SESSION['error']="Utilisateur ou mot de passe incorrect !";
     header('Location:../homelog.php');
@@ -24,6 +26,8 @@ if(empty($user)){
 }else{
     // session_start();
     $_SESSION['user'] = $user; 
+    $_SESSION['index_page'] = $index_page; 
+    $_SESSION['project'] = $project; 
     if($user['admin']==1){
         header('Location:../adminpanel.php');
     } else {
