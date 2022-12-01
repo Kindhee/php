@@ -123,6 +123,11 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
     </form>
 </div>
 
+
+<div>
+  <img src="<?php echo $index_page['img'] ?>">
+</div>  
+
 <div>
 <form method="post" enctype="multipart/form-data" action="actions/changeimg.php">
   <input type="file" name="img">
