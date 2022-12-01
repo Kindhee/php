@@ -123,6 +123,13 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
     </form>
 </div>
 
+<div>
+<form method="post" enctype="multipart/form-data" action="actions/changeimg.php">
+  <input type="file" name="img">
+  <input type='hidden' name="id" value = "<?php echo $index_page['id'] ?>" />
+  <button class="black-text-css" type="submit">Modifier</button>
+</div>  
+
 <div id="modal1" class="modal">
           <div class="card contact-card">
             <div class="card-content">

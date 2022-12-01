@@ -96,6 +96,10 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
 <h2 class="black-text-css" ><?php echo $alltext['title_project'] ?></h2>
   <a class = "btn-panel" href="project.php">ici</a>
 
+<div>
+  <img src="<?php echo $index_page['img'] ?>">
+</div>  
+
 <div id="modal1" class="modal">
           <div class="card contact-card">
             <div class="card-content">
@@ -117,7 +121,7 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
   </div>
-
+    
   <div class="parallax-container">
     <div class="center" style="line-height: 500px;">
       <button data-target="modal1" class="button-grey waves-effect waves-light modal-trigger btn-large">Contact</button>

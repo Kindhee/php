@@ -5,11 +5,10 @@ if(isset($_FILES['img']) && !empty($_FILES['img']['name'])){
     $destination = "img/".$_FILES['img']['name'];
     move_uploaded_file($_FILES["img"]["tmp_name"],"../".$destination);
 
-    $sql = "INSERT INTO project(title,img,txt_intro) VALUES(:title,:img,:txt_intro)";
+    $sql = "UPDATE index_page SET img = :img WHERE index_page.id = :id";
     $dataBinded=array(
-        ':title'   => $_POST['title'],
         ':img'   => $destination,
-        ':txt_intro'   => $_POST['txt_intro'],
+        ':id'   => $_POST['id'],
     );
     $pre = $pdo->prepare($sql); 
     $pre->execute($dataBinded);
@@ -18,5 +17,5 @@ if(isset($_FILES['img']) && !empty($_FILES['img']['name'])){
     exit();
 }
 
-header('Location:../projectbis.php');
+header('Location:../indexbis.php');
 ?>
