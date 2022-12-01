@@ -19,5 +19,5 @@ if(isset($_FILES['img']) && !empty($_FILES['img']['name'])){
 }
 
 // header('Location:../index.php');
-header('Location:../indexbis.php');
+header('Location:../projectbis.php');
 ?>

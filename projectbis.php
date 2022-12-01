@@ -25,18 +25,26 @@
   
 <?php require "components/menu.php"; ?>
 
-<?php require "components/menu.php"; 
-    if(!isset($_SESSION['user']) || ($_SESSION['user']['admin'] == 0 )){
+<? if(!isset($_SESSION['user']) || ($_SESSION['user']['admin'] == 0 )){
         header('Location:homelog.php');
         exit();
     } ?>
+
+
+<form method="post" action="actions/addproject.php" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Titre">
+    <input type="file" name="img">
+    <input type="text" name="txt_intro" placeholder="Descriptions">
+    <input type="submit" value="Ajouter" >
+</form>
+   
 
 <?php
 $sql = "SELECT * FROM project"; 
 $pre = $pdo->prepare($sql); 
 $pre->execute();
 $data = $pre->fetchAll(PDO::FETCH_ASSOC);
-   
+
 foreach($data as $project){ ?>
 <div class="project-display">
     <h2 class="black-text-css text-center"><?php echo $project['title']?></h2>
