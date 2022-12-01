@@ -27,9 +27,9 @@
 
 <div class="green white-text-css-all text-center">
     <?php 
-      if(isset($_SESSION['error'])){
-	      echo $_SESSION['error'];
-	      unset($_SESSION['error']);
+      if(isset($_SESSION['success'])){
+	      echo $_SESSION['success'];
+	      unset($_SESSION['success']);
       } 
       ?>
 </div>
@@ -86,17 +86,6 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
 
 
 <h2 class="black-text-css" >Les Projets :</h2>
-    <!--  -->
-    <div class="container">
-        <h3>Ajouter un projet</h3>
-        <form action="actions/addproject.php" method="post" enctype="multipart/form-data">
-            <input type="text" name="title" value="" placeholder="Titre">
-            <input type="file" name="img" value="" placeholder="L'objet du mail">
-            <input type="text" name="txt_intro" value="" placeholder="Présentation">
-            <input type="submit" value="Envoyer" >
-        </form>
-    </div>
-    <!--  -->
     <?php
     $sql = "SELECT * FROM project"; 
     $pre = $pdo->prepare($sql); 

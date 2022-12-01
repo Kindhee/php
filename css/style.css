@@ -270,5 +270,21 @@ h1.parallax-middle{
 
 .textarea-style{
     height: 150px!important;
-    width: 850px!important;
+    width: 700px!important;
+}
+
+.colonne{
+    display: grid;
+    font-size: 50px;;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.colonne-es{
+    margin-bottom: 30px;
+}
+
+.btn-panel{
+    font-size: 50px;;
+    text-align: center;
 }

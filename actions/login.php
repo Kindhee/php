@@ -29,7 +29,7 @@ if(empty($user)){
     $_SESSION['index_page'] = $index_page; 
     $_SESSION['project'] = $project; 
     if($user['admin']==1){
-        header('Location:../adminpanel.php');
+        header('Location:../adminchoice.php');
     } else {
         // header('Location:../index.php');
         header('Location:../indexbis.php');

@@ -1,4 +1,6 @@
 <?php
+require_once "../cfg/config.php"; 
+
 $email = "rmichel@gaming.tech";
 $objet = $_POST['object'];
 $content = $_POST['message']."<br><br>Email from : ". $_POST['email'];

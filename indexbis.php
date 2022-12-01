@@ -27,9 +27,9 @@
 
 <div class="green white-text-css-all text-center">
     <?php 
-      if(isset($_SESSION['error'])){
-	      echo $_SESSION['error'];
-	      unset($_SESSION['error']);
+      if(isset($_SESSION['success'])){
+	      echo $_SESSION['success'];
+	      unset($_SESSION['success']);
       } 
       ?>
 </div>
@@ -45,6 +45,10 @@
 
   <div>
     <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le site \" " . $_SESSION['user']['username'] . " \" !"; ?></h1>
+  </div>
+
+  <div>
+    <a class = "btn-panel" href="adminchoice.php">Page Admin</a>
   </div>
 
 <?php
@@ -88,7 +92,7 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
 <h2 class="black-text-css" >Les Projets :</h2>
     <!--  -->
     <div class="container">
-        <h3>Ajouter un projet</h3>
+        <h3 class="black-text-css" >Ajouter un projet</h3>
         <form action="actions/addproject.php" method="post" enctype="multipart/form-data">
             <input type="text" name="title" value="" placeholder="Titre">
             <input type="file" name="img" value="" placeholder="L'objet du mail">
