@@ -24,7 +24,16 @@
 <body>
   
 <?php require "components/menu.php"; ?>
-  
+
+<div class="green white-text-css-all text-center">
+    <?php 
+      if(isset($_SESSION['error'])){
+	      echo $_SESSION['error'];
+	      unset($_SESSION['error']);
+      } 
+      ?>
+  </div>
+
   <div>
     <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le site \" " . $_SESSION['user']['username'] . " \" !"; ?></h1>
   </div>
@@ -111,7 +120,7 @@
             <div class="card-content">
               <div class="container">
                 <h3>Formulaire de contact</h3>
-                <form action="mail.php" method="post">
+                <form action="actions/mail.php" method="post">
                   <input type="text" name="email" value="" placeholder=" Votre email">
                   <input type="text" name="objet" value="" placeholder="L'objet du mail">
                   <input type="textarea" class="textarea-style" name="content" value="" placeholder="Ecrivez nous ici">
