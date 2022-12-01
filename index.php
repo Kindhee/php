@@ -32,31 +32,37 @@
 	      unset($_SESSION['error']);
       } 
       ?>
-  </div>
+</div>
+
+<div class="red white-text-css-all text-center">
+    <?php 
+      if(isset($_SESSION['error'])){
+	      echo $_SESSION['error'];
+	      unset($_SESSION['error']);
+      } 
+      ?>
+</div>
 
   <div>
     <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le site \" " . $_SESSION['user']['username'] . " \" !"; ?></h1>
   </div>
 
+<?php
+$sql = "SELECT * FROM index_page"; 
+$pre = $pdo->prepare($sql); 
+$pre->execute();
+$index_page = $pre->fetch(PDO::FETCH_ASSOC);
 
+?>
 
 <div class="row team">
     <div class="col s6">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
             <div class="card-panel z-depth-1 card-bg">
               <div class="row valign-wrapper">
-                <div class="col s2">
-                  <img src="img/pp-romain.jpg" alt="" class="circle responsive-img hide-on-med-and-down"> <!-- notice the "circle" class -->
-                </div>
-                <div class="col s10">
                   <span class="black-text-css">
-                    Nom: Romain MICHEL<br>
-                    Étude: GTECH 1 en classe C<br>
-                    Age: 17 ans<br>
-                    Hobbie: la salle de sport, les jeux vidéos<br>
-                    Projet: A réaliser le projet 1
+                    <?php echo $index_page['intro_eleve1'] ?>
                 </span>
-                </div>
             </div>
         </div>
     </div>
@@ -67,53 +73,49 @@
     <div class="col s6">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
             <div class="card-panel z-depth-1 card-bg">
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <img src="img/pplilian.jpg" alt="" class="circle responsive-img hide-on-med-and-down"> <!-- notice the "circle" class -->
-                    </div>
-                    <div class="col s10">
+                <div class="row valign-wrapper">               
                         <span class="black-text-css">
-                              Nom: Lilian VIENNET<br>
-                              Étude: GTECH 1 en classe C<br>
-                              Age: 19 ans<br>
-                              Hobbie: La moto, le métal,  et les jeux vidéo<br>
-                              Projet: A réaliser le projet 2
+                            <?php echo $index_page['intro_eleve2'] ?>
                         </span>
-                      </div>
                   </div>
               </div>
           </div>
       </div>
 </div>
 
-<div class="row">
-  <div class="col s12">
-    <h2 class="black-text-css titre-projet">
-      Plongez vous dans les 3 projets presentés en dessous !
-    </h2>
-  </div>
-</div>
 
 
-<div class="carousel">
-  <div class="carousel carousel-slider center">
-    <div class="carousel-item white-text-css red">
-      <h2 class="title-carousel " >Projet 1</h2>
-      <p class="white-text-css">Site Overwatch</p>
-      <a id="btn-carousel" class="btn-large btn-carousel black-text-css pulse" href="projet1.html" target="_blank">Découvrir <i class="material-icons right">launch</i></a>
+<h2 class="black-text-css" >Les Projets :</h2>
+    <!--  -->
+    <div class="container">
+        <h3>Ajouter un projet</h3>
+        <form action="actions/addproject.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="title" value="" placeholder="Titre">
+            <input type="file" name="img" value="" placeholder="L'objet du mail">
+            <input type="text" name="txt_intro" value="" placeholder="Présentation">
+            <input type="submit" value="Envoyer" >
+        </form>
     </div>
-    <div class="carousel-item white-text-css green">
-      <h2 class="title-carousel ">Projet 2</h2>
-      <p class="white-text-css" >Site Assassin's Creed</p>
-      <a id="btn-carousel" class="btn-large btn-carousel black-text-css pulse" href="projet2.html" target="_blank">Découvrir <i class="material-icons right">launch</i></a>
+    <!--  -->
+    <?php
+    $sql = "SELECT * FROM project"; 
+    $pre = $pdo->prepare($sql); 
+    $pre->execute();
+    $data = $pre->fetchAll(PDO::FETCH_ASSOC);
+   
+    foreach($data as $project){ ?>
+    <div class="project-display">
+      <h2 class="black-text-css text-center"><?php echo $project['title']?></h2>
+      <div class="text-center">
+        <img src="<?php echo $project['img']?> " alt="project-img">
+      </div>
+      <p class="black-text-css  text-center"><?php echo $project['txt_intro']?></p>
+      <?php } ?>
     </div>
-    <div class="carousel-item white-text-css blue">
-      <h2 class="title-carousel ">Projet 3</h2>
-      <p class="white-text-css" >projet 3</p>
-      <a id="btn-carousel" class="btn-large btn-carousel black-text-css pulse" href="projet3.html" target="_blank">Découvrir <i class="material-icons right">launch</i></a>    
-    </div>
-  </div>
-</div>
+
+
+<!--  -->
+
 
 <div id="modal1" class="modal">
           <div class="card contact-card">

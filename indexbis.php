@@ -27,32 +27,42 @@
 
 <div class="green white-text-css-all text-center">
     <?php 
-      if(isset($_SESSION['success'])){
-	      echo $_SESSION['success'];
-	      unset($_SESSION['success']);
+      if(isset($_SESSION['error'])){
+	      echo $_SESSION['error'];
+	      unset($_SESSION['error']);
       } 
       ?>
-  </div>
+</div>
+
+<div class="red white-text-css-all text-center">
+    <?php 
+      if(isset($_SESSION['error'])){
+	      echo $_SESSION['error'];
+	      unset($_SESSION['error']);
+      } 
+      ?>
+</div>
 
   <div>
     <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le site \" " . $_SESSION['user']['username'] . " \" !"; ?></h1>
   </div>
 
+<?php
+$sql = "SELECT * FROM index_page"; 
+$pre = $pdo->prepare($sql); 
+$pre->execute();
+$index_page = $pre->fetch(PDO::FETCH_ASSOC);
 
+?>
 
 <div class="row team">
     <div class="col s6">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
             <div class="card-panel z-depth-1 card-bg">
               <div class="row valign-wrapper">
-                <div class="col s2">
-                  <img src="img/pp-romain.jpg" alt="" class="circle responsive-img hide-on-med-and-down"> <!-- notice the "circle" class -->
-                </div>
-                <div class="col s10">
                   <span class="black-text-css">
                     <?php echo $index_page['intro_eleve1'] ?>
                 </span>
-                </div>
             </div>
         </div>
     </div>
@@ -63,15 +73,10 @@
     <div class="col s6">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
             <div class="card-panel z-depth-1 card-bg">
-                <div class="row valign-wrapper">
-                    <div class="col s2">
-                        <img src="img/pplilian.jpg" alt="" class="circle responsive-img hide-on-med-and-down"> <!-- notice the "circle" class -->
-                    </div>
-                    <div class="col s10">
+                <div class="row valign-wrapper">               
                         <span class="black-text-css">
                             <?php echo $index_page['intro_eleve2'] ?>
                         </span>
-                      </div>
                   </div>
               </div>
           </div>
@@ -80,10 +85,18 @@
 
 
 
-<!--  -->
-
-
 <h2 class="black-text-css" >Les Projets :</h2>
+    <!--  -->
+    <div class="container">
+        <h3>Ajouter un projet</h3>
+        <form action="actions/addproject.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="title" value="" placeholder="Titre">
+            <input type="file" name="img" value="" placeholder="L'objet du mail">
+            <input type="text" name="txt_intro" value="" placeholder="Présentation">
+            <input type="submit" value="Envoyer" >
+        </form>
+    </div>
+    <!--  -->
     <?php
     $sql = "SELECT * FROM project"; 
     $pre = $pdo->prepare($sql); 
@@ -92,30 +105,11 @@
    
     foreach($data as $project){ ?>
     <div class="project-display">
-      <h2 class="black-text-css"><?php echo $project['title']?></h2>
-      <p class="black-text-css"><?php echo $project['text-intro']?></p>
-      <img src="<?php echo $project['img']?> " alt="project-img">
-
-        <!-- <div class="btn-project-display">
-
-          <form method="post" action="actions/changeusername.php">
-              <input class = "textarea-admin" type='textarea' name="username" value = "<?php echo $user['username'] ?>" />
-              <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-              <button class="btn-adminpanel black-text-css" type="submit">Modifier</button>
-          </form>
-
-          <form method="post" action="actions/admin.php">
-              <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-              <input type='hidden' name="admin" value = "<?php echo $user['admin']==1?0:1 ?>" />
-              <button class="btn-adminpanel black-text-css" type="submit">Admin</button>
-          </form>
-
-          <form method="post" action="actions/deleteuser.php">
-              <input type='hidden' name="id" value = "<?php echo $user['id'] ?>" />
-              <button class="btn-adminpanel black-text-css" type="submit"><span class="material-icons admin-icon">delete</span></button>
-          </form>
-
-        </div> -->
+      <h2 class="black-text-css text-center"><?php echo $project['title']?></h2>
+      <div class="text-center">
+        <img src="<?php echo $project['img']?> " alt="project-img">
+      </div>
+      <p class="black-text-css  text-center"><?php echo $project['txt_intro']?></p>
       <?php } ?>
     </div>
 
