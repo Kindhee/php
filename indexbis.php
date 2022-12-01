@@ -24,8 +24,7 @@
 <body>
   
 <?php require "components/menu.php"; ?>
-
-<?php require "components/menu.php"; 
+<?php
     if(!isset($_SESSION['user']) || ($_SESSION['user']['admin'] == 0 )){
         header('Location:homelog.php');
         exit();
@@ -85,7 +84,11 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
             <div class="card-panel z-depth-1 card-bg">
               <div class="row valign-wrapper">
                   <span class="black-text-css">
-                    <?php echo $index_page['intro_eleve1'] ?>
+                  <form method="post" action="actions/changeintro.php">
+                    <p class="black-text-css text-center"><input type='textarea' style="width : 400px; height : 100px" name="intro_eleve1" value = "<?php echo $index_page['intro_eleve1'] ?>" />  </p>
+                    <input type='hidden' name="id" value = "<?php echo $index_page['id'] ?>" />
+                    <button class="black-text-css" type="submit">Modifier</button>
+                  </form>
                 </span>
             </div>
         </div>
@@ -99,7 +102,11 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
             <div class="card-panel z-depth-1 card-bg">
                 <div class="row valign-wrapper">               
                         <span class="black-text-css">
-                            <?php echo $index_page['intro_eleve2'] ?>
+                        <form method="post" action="actions/changeintro2.php">
+                            <p class="black-text-css text-center"><input type='textarea' style="width : 400px; height : 100px" name="intro_eleve2" value = "<?php echo $index_page['intro_eleve2'] ?>" />  </p>
+                            <input type='hidden' name="id" value = "<?php echo $index_page['id'] ?>" />
+                            <button class="black-text-css" type="submit">Modifier</button>
+                        </form>
                         </span>
                   </div>
               </div>
