@@ -19,6 +19,7 @@ $pre->execute();
 $user = $pre->fetch(PDO::FETCH_ASSOC); 
 $index_page = $pre->fetch(PDO::FETCH_ASSOC); 
 $project = $pre->fetch(PDO::FETCH_ASSOC); 
+$alltext = $pre->fetch(PDO::FETCH_ASSOC); 
 if(empty($user)){
     $_SESSION['error']="Utilisateur ou mot de passe incorrect !";
     header('Location:../homelog.php');
@@ -28,11 +29,12 @@ if(empty($user)){
     $_SESSION['user'] = $user; 
     $_SESSION['index_page'] = $index_page; 
     $_SESSION['project'] = $project; 
+    $_SESSION['alltext'] = $alltext; 
     if($user['admin']==1){
         header('Location:../adminchoice.php');
     } else {
         // header('Location:../index.php');
-        header('Location:../indexbis.php');
+        header('Location:../index.php');
     }
 }
 

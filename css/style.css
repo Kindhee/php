@@ -288,3 +288,7 @@ h1.parallax-middle{
     font-size: 50px;;
     text-align: center;
 }
+
+.fullwidth{
+    width: 100%;
+}

@@ -23,8 +23,8 @@
   <?php require "components/menu.php"; ?>
     <div class = "colonne">
         <a class = "colonne-es" href="adminpanel.php">Gestion User</a>
-        <a class = "colonne-es" href="adminpanel.php">Gestion Index</a>
-        <a class = "colonne-es" href="adminpanel.php">Gestion Projet</a>
+        <a class = "colonne-es" href="indexbis.php">Gestion Index</a>
+        <a class = "colonne-es" href="projectbis.php">Gestion Projet</a>
     </div>
 
   <!-- JQuery -->

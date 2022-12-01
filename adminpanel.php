@@ -30,13 +30,12 @@
       } 
       ?>
   </div>
+  <div class = "btn-panel">
+    <a class = "btn-panel" href="adminchoice.php">Page Admin</a>
+  </div>
 
   <h1 class="black-text-css text-center "><?php echo "Bienvenue sur le panel Admin " . $_SESSION['user']['username'] . " !"; ?> </h1>
   <div>
-
-  <div>
-    <a class = "btn-panel" href="adminchoice.php">Page Admin</a>
-  </div>
 
     <h2 class="black-text-css" >Liste des utilisateurs :</h2>
     <?php

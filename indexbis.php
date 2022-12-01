@@ -43,13 +43,26 @@
       ?>
 </div>
 
-  <div>
-    <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le site \" " . $_SESSION['user']['username'] . " \" !"; ?></h1>
-  </div>
-
-  <div>
+<div class = "btn-panel">
     <a class = "btn-panel" href="adminchoice.php">Page Admin</a>
-  </div>
+</div>
+
+<?php
+$sql = "SELECT * FROM alltext"; 
+$pre = $pdo->prepare($sql); 
+$pre->execute();
+$alltext = $pre->fetch(PDO::FETCH_ASSOC);
+
+?>
+
+<div>
+    <form method="post" action="actions/changetitle.php">
+        <h1 class="black-text-css text-center"><input type='textarea' name="title" value = "<?php echo $alltext['title']." ".$_SESSION['user']['username'] ?>" />
+        <input type='hidden' name="id" value = "<?php echo $alltext['id'] ?>" />
+        <button class="black-text-css" type="submit">Modifier</button>
+    </form>
+</div>
+
 
 <?php
 $sql = "SELECT * FROM index_page"; 
@@ -88,8 +101,13 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
 </div>
 
 
-
-<h2 class="black-text-css" >Les Projets :</h2>
+<div>
+    <form method="post" action="actions/changetitleproject.php">
+        <h2 class="black-text-css" ><input type='textarea' name="title_project" value = "<?php echo $alltext['title_project'] ?>" /></h2>
+        <input type='hidden' name="id" value = "<?php echo $alltext['id'] ?>" />
+        <button class="black-text-css" type="submit">Modifier</button>
+    </form>
+</div>
     <!--  -->
     <div class="container">
         <h3 class="black-text-css" >Ajouter un projet</h3>

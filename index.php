@@ -43,8 +43,17 @@
       ?>
 </div>
 
+<?php
+$sql = "SELECT * FROM alltext"; 
+$pre = $pdo->prepare($sql); 
+$pre->execute();
+$alltext = $pre->fetch(PDO::FETCH_ASSOC);
+
+?>
+
+
   <div>
-    <h1 class="black-text-css text-center"><?php echo "Bienvenue sur le site \" " . $_SESSION['user']['username'] . " \" !"; ?></h1>
+    <h1 class="black-text-css text-center"><?php echo $alltext['title'] . "\" ". $_SESSION['user']['username'] . " \" !"; ?></h1>
   </div>
 
 <?php
@@ -84,27 +93,8 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
 </div>
 
 
-
-<h2 class="black-text-css" >Les Projets :</h2>
-    <?php
-    $sql = "SELECT * FROM project"; 
-    $pre = $pdo->prepare($sql); 
-    $pre->execute();
-    $data = $pre->fetchAll(PDO::FETCH_ASSOC);
-   
-    foreach($data as $project){ ?>
-    <div class="project-display">
-      <h2 class="black-text-css text-center"><?php echo $project['title']?></h2>
-      <div class="text-center">
-        <img src="<?php echo $project['img']?> " alt="project-img">
-      </div>
-      <p class="black-text-css  text-center"><?php echo $project['txt_intro']?></p>
-      <?php } ?>
-    </div>
-
-
-<!--  -->
-
+<h2 class="black-text-css" ><?php echo $alltext['title_project'] ?></h2>
+  <a class = "btn-panel" href="project.php">ici</a>
 
 <div id="modal1" class="modal">
           <div class="card contact-card">
