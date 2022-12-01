@@ -19,8 +19,14 @@
     <title>Connexion</title>
  </head>
  <body>
-  
-  <?php require "components/menu.php"; ?>
+
+
+  <?php require "components/menu.php"; 
+    if(!isset($_SESSION['user']) || ($_SESSION['user']['admin'] == 0 )){
+        header('Location:homelog.php');
+        exit();
+    }
+  ?>
     <div class = "colonne">
         <a class = "colonne-es" href="adminpanel.php">Gestion User</a>
         <a class = "colonne-es" href="indexbis.php">Gestion Index</a>
