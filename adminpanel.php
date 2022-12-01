@@ -22,6 +22,12 @@
   
   <?php require "components/menu.php"; ?>
 
+  <?php require "components/menu.php"; 
+    if(!isset($_SESSION['user']) || ($_SESSION['user']['admin'] == 0 )){
+        header('Location:homelog.php');
+        exit();
+    } ?>
+
   <div class="red white-text-css-all text-center">
     <?php 
       if(isset($_SESSION['error'])){

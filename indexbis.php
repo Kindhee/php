@@ -25,6 +25,13 @@
   
 <?php require "components/menu.php"; ?>
 
+<?php require "components/menu.php"; 
+    if(!isset($_SESSION['user']) || ($_SESSION['user']['admin'] == 0 )){
+        header('Location:homelog.php');
+        exit();
+    } ?>
+
+
 <div class="green white-text-css-all text-center">
     <?php 
       if(isset($_SESSION['success'])){
@@ -108,36 +115,6 @@ $index_page = $pre->fetch(PDO::FETCH_ASSOC);
         <button class="black-text-css" type="submit">Modifier</button>
     </form>
 </div>
-    <!--  -->
-    <div class="container">
-        <h3 class="black-text-css" >Ajouter un projet</h3>
-        <form action="actions/addproject.php" method="post" enctype="multipart/form-data">
-            <input type="text" name="title" value="" placeholder="Titre">
-            <input type="file" name="img" value="" placeholder="L'objet du mail">
-            <input type="text" name="txt_intro" value="" placeholder="Présentation">
-            <input type="submit" value="Envoyer" >
-        </form>
-    </div>
-    <!--  -->
-    <?php
-    $sql = "SELECT * FROM project"; 
-    $pre = $pdo->prepare($sql); 
-    $pre->execute();
-    $data = $pre->fetchAll(PDO::FETCH_ASSOC);
-   
-    foreach($data as $project){ ?>
-    <div class="project-display">
-      <h2 class="black-text-css text-center"><?php echo $project['title']?></h2>
-      <div class="text-center">
-        <img src="<?php echo $project['img']?> " alt="project-img">
-      </div>
-      <p class="black-text-css  text-center"><?php echo $project['txt_intro']?></p>
-      <?php } ?>
-    </div>
-
-
-<!--  -->
-
 
 <div id="modal1" class="modal">
           <div class="card contact-card">
